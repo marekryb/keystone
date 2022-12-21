@@ -1,5 +1,5 @@
 import { list } from '@keystone-6/core';
-import { allowAll } from '@keystone-6/core/access';
+import { allowAll, denyAll } from '@keystone-6/core/access';
 import { select, relationship, text, timestamp } from '@keystone-6/core/fields';
 
 export const lists = {
@@ -23,7 +23,7 @@ export const lists = {
     },
   }),
   Author: list({
-    access: allowAll,
+    access: denyAll,
     fields: {
       name: text({ validation: { isRequired: true } }),
       email: text({ isIndexed: 'unique', validation: { isRequired: true } }),
